@@ -12,7 +12,7 @@ import javax.mail.MessagingException;
 public class SpringMailAppApplication {
 
 	@Autowired
-	private EmailSenderService emailService;
+	private EmailSenderService emailSenderService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringMailAppApplication.class, args);
@@ -21,7 +21,7 @@ public class SpringMailAppApplication {
 	//Simple email.
 //	@EventListener(ApplicationReadyEvent.class)
 //	public void triggerMail(){
-//		emailService.sendSimpleEmail(
+//		emailSenderService.sendSimpleEmail(
 //				"ashishmuley1101@gmail.com",
 //				"This is email body...",
 //				"This is a email subject...!"
@@ -33,7 +33,7 @@ public class SpringMailAppApplication {
 	@EventListener(ApplicationReadyEvent.class)
 	public void triggerMail() throws MessagingException {
 
-		emailService.sendEmailWithAttachment("ashishmuley1101@gmail.com",
+		emailSenderService.sendEmailWithAttachment("ashishmuley1101@gmail.com",
 				"This is Email Body with Attachment...",
 				"This email has attachment",
 				"C:\\Users\\admin\\Desktop\\BridgelabCFP\\images.jpg");
